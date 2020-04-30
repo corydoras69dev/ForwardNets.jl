@@ -6,7 +6,7 @@ net = ForwardNet{Float32}()
 push!(net, Variable(:A, Float32[0]))
 push!(net, Variable(:B, Float32, 2))
 push!(net, Variable, :C, Float32[1])
-push!(net, Variable, :D, 3)
+push!(net, Variable, :D, 3, :LAST)
 @test lastindex(net) == 4
 
 A = net[:A]
@@ -72,7 +72,7 @@ zero!(lstm)
 @test lstm.state[1] == 0.0f0
 forward!(lstm)
 
-push!(net, Variable, :output, :affine)
+push!(net, Variable, :output, :affine, :LAST)
 
 pass = calc_forwardpass(net, [:A], [:output])
 output(A)[1] = 2.0f0

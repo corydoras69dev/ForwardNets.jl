@@ -20,11 +20,12 @@ function Base.push!{T}(net::ForwardNet{T}, ::Type{Variable},
     shape::Int...
     )
 
-    push!(net, Variable(name, Array(T, shape...)))
+    push!(net, Variable(name, Array{T}(shape...)))
 end
 function Base.push!{T}(net::ForwardNet{T}, ::Type{Variable},
     name::Symbol,
     parent::NameOrIndex,
+    ::Symbol
     )
 
     node = Variable(name, output(net[parent]))
