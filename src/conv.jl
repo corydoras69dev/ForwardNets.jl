@@ -20,8 +20,8 @@ function add_node!(net::ForwardNet, ::Type{Conv2d},
     parent = output(net[parent_index])::Array{Float32, 3}
     h, w, in_c = size(parent)
 
-    W = Array(Float32, filter_h, filter_w, in_c, out_c)
-    b = Array(Float32, out_c)
+    W = Array{Float32}(filter_h, filter_w, in_c, out_c)
+    b = Array{Float32}(out_c)
 
     # FOR VALID: (padding is always zero)
     # out_w = ceil(float(w - filter_w + 1) / float(strides[2]))
@@ -30,7 +30,7 @@ function add_node!(net::ForwardNet, ::Type{Conv2d},
     # FOR SAME:
     out_w  =ceil(Int, w / strides[2])
     out_h = ceil(Int, h / strides[1])
-    child = Array(Float32, out_h, out_w, out_c)
+    child = Array{Float32}(out_h, out_w, out_c)
 
     node = Conv2d(name, W, b, strides, parent, child)
     add_node!(net, node, parent_index)

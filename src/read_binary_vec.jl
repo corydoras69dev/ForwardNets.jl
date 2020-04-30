@@ -118,7 +118,7 @@ function convert_to_column_major_array{T}(vec::Vector{T}, shape::Tuple{Int, Int}
     n, m = shape
     @assert(n*m == length(vec))
 
-    retval = Array(T, n, m)
+    retval = Array{T}(n, m)
 
     _convert_to_column_major_array(retval, vec, shape)
 end
@@ -126,7 +126,7 @@ function convert_to_column_major_array{T}(vec::Vector{T}, shape::Tuple{Int, Int,
     m, n, o = shape
     @assert(n*m*o == length(vec))
 
-    retval = Array(T, m, n, o)
+    retval = Array{T}(m, n, o)
 
     _convert_to_column_major_array(retval, vec, shape)
 end
@@ -134,7 +134,7 @@ function convert_to_column_major_array{T}(vec::Vector{T}, shape::Tuple{Int, Int,
     m, n, o, p = shape
     @assert(n*m*o*p == length(vec))
 
-    retval = Array(T, m, n, o, p)
+    retval = Array{T}(m, n, o, p)
 
     _convert_to_column_major_array(retval, vec, shape)
 end

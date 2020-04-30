@@ -24,11 +24,11 @@ function Base.push!{T}(net::ForwardNet{T}, ::Type{BatchNorm1},
     )
 
     input = output(net[parent])::Vector{T}
-    output = Array{T, length(input)}
-    γ = Array{T, length(input)}
-    β = Array{T, length(input)}
-    μ = Array{T, length(input)}
-    ν = Array{T, length(input)}
+    output = Array{T}(length(input))
+    γ = Array{T}(length(input))
+    β = Array{T}(length(input))
+    μ = Array{T}(length(input))
+    ν = Array{T}(length(input))
 
     node = BatchNorm1(name, γ, β, ϵ, μ, ν, input, output)
     push!(net, node, parent)
@@ -77,12 +77,12 @@ function Base.push!{T}(net::ForwardNet{T}, ::Type{BatchNorm3},
     )
 
     input = output(net[parent_index])::Array{T, 3}
-    output = Array{T, size(input)}
+    output = Array{T}(size(input))
     in_c = size(input, 3)
-    γ = Array{T, in_c}
-    β = Array{T, in_c}
-    μ = Array{T, in_c}
-    ν = Array{T, in_c}
+    γ = Array{T}(in_c)
+    β = Array{T}(in_c)
+    μ = Array{T}(in_c)
+    ν = Array{T}(in_c)
 
     node = BatchNorm3(name, γ, β, ϵ, μ, ν, input, output)
     push!(net, node, parent)

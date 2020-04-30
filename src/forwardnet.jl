@@ -28,7 +28,7 @@ function Base.push!{T}(net::ForwardNet{T}, node::Node{T}, parents::Vector{Int}=I
     net
 end
 function Base.push!{T}(net::ForwardNet{T}, node::Node{T}, parents::Union{Vector{Symbol}, Vector{NameOrIndex}})
-    int_parents = Array(Int, length(parents))
+    int_parents = Array{Int}(length(parents))
     for (i,p) in enumerate(parents)
         if isa(p, Int)
             int_parents[i] = p
