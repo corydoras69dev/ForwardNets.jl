@@ -21,9 +21,9 @@ function Base.push!{T}(net::ForwardNet{T}, ::Type{Affine},
 
     input = ForwardNets.output(net[parent])::Vector{T}
 
-    W = Array(T, output_dim, length(input))
-    b = Array(T, output_dim)
-    output = Array(T, output_dim)
+    W = Array{T}(output_dim, length(input))
+    b = Array{T}(output_dim)
+    output = Array{T}(output_dim)
 
     node = Affine(name, W, b, input, output)
     push!(net, node, parent)
@@ -66,7 +66,7 @@ function Base.push!{T, V<:NameOrIndex}(net::ForwardNet{T}, ::Type{Concatenator},
     )
 
     tot_len = 0
-    inputs = Array(Vector{T}, length(parents))
+    inputs = Array{Vector{T}, length(parents)}
     for (i,parent) in enumerate(parents)
         inputs[i] = ForwardNets.output(net[parent])::Vector{T}
         tot_len += length(inputs[i])
