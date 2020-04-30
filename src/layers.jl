@@ -66,13 +66,13 @@ function Base.push!{T, V<:NameOrIndex}(net::ForwardNet{T}, ::Type{Concatenator},
     )
 
     tot_len = 0
-    inputs = Array{Vector{T}, length(parents)}
+    inputs = Array{Vector{T}}(length(parents))
     for (i,parent) in enumerate(parents)
         inputs[i] = ForwardNets.output(net[parent])::Vector{T}
         tot_len += length(inputs[i])
     end
 
-    output = Array(T, tot_len)
+    output = Array{T}(tot_len)
 
     node = Concatenator{T}(name, inputs, output)
     push!(net, node, parents)
@@ -113,7 +113,7 @@ function Base.push!{T}(net::ForwardNet{T}, ::Type{Reshaper},
     )
 
     input = ForwardNets.output(net[parent])::Array{T}
-    output = Array(T, new_shape...)
+    output = Array{T}(new_shape...)
 
     node = Reshaper(name, input, output)
     push!(net, node, parent)
