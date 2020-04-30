@@ -1,9 +1,9 @@
-abstract Node{T<:Real}
+abstract type Node{T<:Real} end
 
-abstract Layer{T} <: Node{T}
-abstract Activation{T} <: Node{T}
+abstract type Layer{T} <: Node{T} end
+abstract type Activation{T} <: Node{T} end
 
-typealias NameOrIndex Union{Symbol,Int}
+const NameOrIndex = Union{Symbol,Int}
 
 Base.eltype{T}(::Node{T}) = T
 
