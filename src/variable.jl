@@ -3,7 +3,7 @@ type Variable{T,N} <: Node{T}
     name::Symbol
     tensor::Array{T, N}
 end
-Variable{T}(name::Symbol, ::Type{T}, shape::Int...) = Variable(name, Array(T, shape...))
+Variable{T}(name::Symbol, ::Type{T}, shape::Int...) = Variable(name, Array{T}(shape...))
 
 name(a::Variable) = a.name
 output(a::Variable) = a.tensor
