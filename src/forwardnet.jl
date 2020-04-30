@@ -4,7 +4,7 @@ type ForwardNet{T<:Real}
     name_to_index::Dict{Symbol,Int} # Symbol → index in dag and nodes (note: not all Nodes have names)
     name_counter::Int
 
-    ForwardNet{T}() = new(DiGraph(0), Node[], Dict{Symbol,Int}(), 0) where T
+    ForwardNet{T}() where T = new(DiGraph(0), Node[], Dict{Symbol,Int}(), 0) 
 end
 
 Base.getindex(net::ForwardNet, index::Int) = net.nodes[index]
