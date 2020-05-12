@@ -15,19 +15,19 @@ function Base.push!{T}(net::ForwardNet{T}, ::Type{Variable},
 
     push!(net, Variable(name, tensor))
 end
-function Base.push!{T}(net::ForwardNet{T}, ::Type{Variable},
-    name::Symbol,
-    shape::Int...
-    )
+#function Base.push!{T}(net::ForwardNet{T}, ::Type{Variable},
+#    name::Symbol,
+#    shape::Int...
+#    )
 
-    push!(net, Variable(name, Array{T}(shape...)))
-end
-function Base.push!{T}(net::ForwardNet{T}, ::Type{Variable},
-    name::Symbol,
-    parent::NameOrIndex,
-    ::Symbol
-    )
-
-    node = Variable(name, output(net[parent]))
-    push!(net, node, parent)
-end
+#    push!(net, Variable(name, Array{T}(shape...)))
+#end
+#function Base.push!{T}(net::ForwardNet{T}, ::Type{Variable},
+#    name::Symbol,
+#    parent::NameOrIndex,
+#    ::Symbol
+#    )#
+#
+#    node = Variable(name, output(net[parent]))
+#    push!(net, node, parent)
+#end
