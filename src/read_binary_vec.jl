@@ -1,4 +1,4 @@
-function read_binary_vec{T<:Real}(io::IO, ::Type{T})
+﻿function read_binary_vec{T<:Real}(io::IO, ::Type{T})
     vec = T[]
     while !eof(io)
         push!(vec, read(io, T))

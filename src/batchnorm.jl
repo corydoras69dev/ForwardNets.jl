@@ -1,4 +1,4 @@
-type BatchNorm1{T} <: Layer{T}
+﻿type BatchNorm1{T} <: Layer{T}
     # https://arxiv.org/pdf/1502.03167.pdf
     name::Symbol
     γ::Vector{T}

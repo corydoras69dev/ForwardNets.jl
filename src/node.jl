@@ -1,4 +1,4 @@
-abstract type Node{T<:Real} end
+﻿abstract type Node{T<:Real} end
 
 abstract type Layer{T} <: Node{T} end
 abstract type Activation{T} <: Node{T} end

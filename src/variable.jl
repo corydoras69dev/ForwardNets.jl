@@ -1,4 +1,4 @@
-
+﻿
 type Variable{T,N} <: Node{T}
     name::Symbol
     tensor::Array{T, N}

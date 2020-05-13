@@ -1,4 +1,4 @@
-sigmoid(x::Real) = 1 / (1 + exp(-x))
+﻿sigmoid(x::Real) = 1 / (1 + exp(-x))
 relu(x::Real) = max(x, 0.0)
 softplus(x::Real) = log(1 + exp(x))
 elu(x::Real) = max(x, 0.0) + (exp(x) - 1)*(x <= 0.0)

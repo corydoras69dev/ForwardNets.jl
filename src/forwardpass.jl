@@ -1,4 +1,4 @@
-immutable ForwardPass
+﻿immutable ForwardPass
     net::ForwardNet
     input::Array{Symbol}
     output::Array{Symbol}

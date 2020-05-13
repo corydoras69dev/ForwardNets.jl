@@ -1,4 +1,4 @@
-type Conv2d <: Layer{Float32}
+﻿type Conv2d <: Layer{Float32}
     name::Symbol
     W::Array{Float32, 4} # filter_h × filter_w × in_c × out_c
     b::Vector{Float32} # out_c

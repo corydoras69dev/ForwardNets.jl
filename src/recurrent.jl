@@ -1,4 +1,4 @@
-type LSTM{T} <: Layer{T}
+﻿type LSTM{T} <: Layer{T}
     name::Symbol
     W::Matrix{T} # 4H×(D+H)
         # consists of Wx and Wh

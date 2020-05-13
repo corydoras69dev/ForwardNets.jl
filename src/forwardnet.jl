@@ -1,4 +1,4 @@
-type ForwardNet{T<:Real}
+﻿type ForwardNet{T<:Real}
     dag::DiGraph # graph over nodes
     nodes::Vector{Node{T}}
     name_to_index::Dict{Symbol,Int} # Symbol → index in dag and nodes (note: not all Nodes have names)

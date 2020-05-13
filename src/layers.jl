@@ -1,4 +1,4 @@
-type Affine{T} <: Layer{T}
+﻿type Affine{T} <: Layer{T}
     name::Symbol
     W::Matrix{T} # o×i
     b::Vector{T} # o
